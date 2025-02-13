@@ -14,11 +14,16 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+# For deployment on Streamlit Cloud
+groq_api_key = st.secrets["GROQ_API_KEY"]
+os.environ['HF_TOKEN'] = st.secrets["HF_TOKEN"]
+os.environ['LANGCHAIN_API_KEY'] = st.secrets["LANGCHAIN_API_KEY"]
+os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
 # For local testing
-groq_api_key = os.getenv("GROQ_API_KEY")
-os.environ['HF_TOKEN'] = os.getenv("HF_TOKEN")
-os.environ['LANGCHAIN_API_KEY'] = os.getenv("LANGCHAIN_API_KEY")
-os.environ['OPENAI_API_KEY'] = os.getenv("OPENAI_API_KEY")
+# groq_api_key = os.getenv("GROQ_API_KEY")
+# os.environ['HF_TOKEN'] = os.getenv("HF_TOKEN")
+# os.environ['LANGCHAIN_API_KEY'] = os.getenv("LANGCHAIN_API_KEY")
+# os.environ['OPENAI_API_KEY'] = os.getenv("OPENAI_API_KEY")
 
 
 # Creating the embeddings
